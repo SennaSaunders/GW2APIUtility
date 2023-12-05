@@ -1,8 +1,8 @@
-﻿using GW2APIUtility.Specializations.Models;
+﻿using GW2APIUtility.Data.Specializations.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace GW2APIUtility.Specializations
+namespace GW2APIUtility.Data.Specializations
 {
     public interface ISpecializationAdaptor
     {
@@ -12,16 +12,17 @@ namespace GW2APIUtility.Specializations
 
     public class SpecializationAdaptor : ISpecializationAdaptor
     {
-        private ISpecializationPort _specializationPort;
+        private IHttpPort _httpPort;
+        private string specializationEndpoint = "specializations";
 
-        public SpecializationAdaptor(ISpecializationPort specializationPort)
+        public SpecializationAdaptor(IHttpPort httpPort)
         {
-            _specializationPort = specializationPort;
+            _httpPort = httpPort;
         }
 
         public async Task<IEnumerable<int>> GetSpecializationIds()
         {
-            HttpResponseMessage response = await _specializationPort.GetSpecializationIds();
+            HttpResponseMessage response = await _httpPort.HttpGetAsync(specializationEndpoint);
             var textResponse = await response.Content.ReadAsStringAsync();
             IEnumerable<int>? specializationIds = JsonConvert.DeserializeObject<IEnumerable<int>>(textResponse);
             return specializationIds;
@@ -34,7 +35,7 @@ namespace GW2APIUtility.Specializations
             List<ISpecialization> specializations = new();
             foreach (int id in specializationIds)
             {
-                HttpResponseMessage response = await _specializationPort.GetSpecialization(id);
+                HttpResponseMessage response = await _httpPort.HttpGetAsync($"{specializationEndpoint}/{id}");
                 string textResponse = await response.Content.ReadAsStringAsync();
                 ISpecialization specialization;
 

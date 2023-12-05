@@ -1,6 +1,7 @@
 using FluentAssertions;
-using GW2APIUtility.Specializations;
-using GW2APIUtility.Specializations.Models;
+using GW2APIUtility;
+using GW2APIUtility.Data.Specializations;
+using GW2APIUtility.Data.Specializations.Models;
 
 namespace GW2APIUtilityTests
 {
@@ -13,8 +14,8 @@ namespace GW2APIUtilityTests
         {
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("https://api.guildwars2.com/v2/");
-            ISpecializationPort specializationPort = new SpecializationPort(httpClient);
-            _specializationAdaptor = new SpecializationAdaptor(specializationPort);
+            IHttpPort httpPort = new HttpPort(httpClient);
+            _specializationAdaptor = new SpecializationAdaptor(httpPort);
         }
 
         [Test]

@@ -1,8 +1,7 @@
-﻿namespace GW2APIUtility.Specializations.Models
+﻿namespace GW2APIUtility.Data.Specializations.Models
 {
     public class CoreSpecialization : ISpecialization
     {
 
     }
-
 }

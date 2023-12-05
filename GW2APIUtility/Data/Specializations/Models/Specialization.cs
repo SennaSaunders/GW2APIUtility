@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GW2APIUtility.Specializations.Models
+namespace GW2APIUtility.Data.Specializations.Models
 {
     public abstract class ISpecialization
     {
