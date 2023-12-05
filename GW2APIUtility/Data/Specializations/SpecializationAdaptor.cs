@@ -13,7 +13,7 @@ namespace GW2APIUtility.Data.Specializations
     public class SpecializationAdaptor : ISpecializationAdaptor
     {
         private IHttpPort _httpPort;
-        private string specializationEndpoint = "specializations";
+        private string _specializationEndpoint = "specializations";
 
         public SpecializationAdaptor(IHttpPort httpPort)
         {
@@ -22,9 +22,9 @@ namespace GW2APIUtility.Data.Specializations
 
         public async Task<IEnumerable<int>> GetSpecializationIds()
         {
-            HttpResponseMessage response = await _httpPort.HttpGetAsync(specializationEndpoint);
-            var textResponse = await response.Content.ReadAsStringAsync();
-            IEnumerable<int>? specializationIds = JsonConvert.DeserializeObject<IEnumerable<int>>(textResponse);
+            HttpResponseMessage response = await _httpPort.HttpGetAsync(_specializationEndpoint);
+            string responseString = await response.Content.ReadAsStringAsync();
+            IEnumerable<int>? specializationIds = JsonConvert.DeserializeObject<IEnumerable<int>>(responseString);
             return specializationIds;
         }
 
@@ -35,17 +35,17 @@ namespace GW2APIUtility.Data.Specializations
             List<ISpecialization> specializations = new();
             foreach (int id in specializationIds)
             {
-                HttpResponseMessage response = await _httpPort.HttpGetAsync($"{specializationEndpoint}/{id}");
-                string textResponse = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await _httpPort.HttpGetAsync($"{_specializationEndpoint}/{id}");
+                string responseString = await response.Content.ReadAsStringAsync();
                 ISpecialization specialization;
 
-                if ((bool)JObject.Parse(textResponse)["elite"])
+                if ((bool)JObject.Parse(responseString)["elite"])
                 {
-                    specialization = JsonConvert.DeserializeObject<EliteSpecialization>(textResponse);
+                    specialization = JsonConvert.DeserializeObject<EliteSpecialization>(responseString);
                 }
                 else
                 {
-                    specialization = JsonConvert.DeserializeObject<CoreSpecialization>(textResponse);
+                    specialization = JsonConvert.DeserializeObject<CoreSpecialization>(responseString);
                 }
 
                 specializations.Add(specialization);
