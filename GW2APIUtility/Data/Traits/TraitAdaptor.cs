@@ -6,6 +6,7 @@ namespace GW2APIUtility.Data.Traits
     {
         Task<Trait> GetTrait(int id);
         Task<IEnumerable<int>> GetTraitIds();
+        Task<List<Trait>> GetTraits();
     }
     public class TraitAdaptor : ITraitAdaptor
     {
@@ -31,6 +32,19 @@ namespace GW2APIUtility.Data.Traits
             string responseString = await response.Content.ReadAsStringAsync();
             Trait trait = JsonConvert.DeserializeObject<Trait>(responseString);
             return trait;
+        }
+
+        public async Task<List<Trait>> GetTraits()
+        {
+            IEnumerable<int> traitIds = await GetTraitIds();
+            List<Trait> traits = new();            
+
+            foreach(int id in traitIds)
+            {
+                traits.Add(await GetTrait(id));
+            }
+
+            return traits;
         }
     }
 }

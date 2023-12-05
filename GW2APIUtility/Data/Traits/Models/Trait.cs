@@ -22,8 +22,8 @@ namespace GW2APIUtility.Data.Traits
         [JsonProperty("slot")]
         public string Slot { get; set; }
 
-        [JsonProperty("facts")]
-        public List<Dictionary<string, string>> Facts { get; set; }
+        //[JsonProperty("facts")]
+        //public List<Dictionary<string, string>> Facts { get; set; }
 
         [JsonProperty("specialization")]
         public int Specialization { get; set; }
