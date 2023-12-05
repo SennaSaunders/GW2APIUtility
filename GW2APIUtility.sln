@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW2APIUtility", "GW2APIUtility\GW2APIUtility.csproj", "{919051F2-4DF9-4EAD-9E74-D875AA262410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW2APIUtilityTests", "GW2APIUtilityTests\GW2APIUtilityTests.csproj", "{F414320E-0FA0-4D7D-981F-8F6A50446BF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{919051F2-4DF9-4EAD-9E74-D875AA262410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919051F2-4DF9-4EAD-9E74-D875AA262410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919051F2-4DF9-4EAD-9E74-D875AA262410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919051F2-4DF9-4EAD-9E74-D875AA262410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F414320E-0FA0-4D7D-981F-8F6A50446BF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F414320E-0FA0-4D7D-981F-8F6A50446BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F414320E-0FA0-4D7D-981F-8F6A50446BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F414320E-0FA0-4D7D-981F-8F6A50446BF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3289F49D-5924-409A-8D0E-113F956E0695}
+	EndGlobalSection
+EndGlobal
