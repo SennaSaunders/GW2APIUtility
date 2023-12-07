@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace GW2APIUtility.Data.Specializations.Models
+namespace GW2APIUtility.Models.Specializations
 {
-    public abstract class ISpecialization
+    public class Specialization
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -27,6 +27,14 @@ namespace GW2APIUtility.Data.Specializations.Models
 
         [JsonProperty("background")]
         public string Background { get; set; }
-    }
 
+        [JsonProperty("weapon_trait")]
+        public int? WeaponTrait { get; set; }
+
+        [JsonProperty("profession_icon_big")]
+        public string ProfessionIconBig { get; set; }
+
+        [JsonProperty("profession_icon")]
+        public string ProfessionIcon { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-﻿namespace GW2APIUtility
+﻿namespace GW2APIUtility.DataRetrieval
 {
     public interface IHttpPort
     {
