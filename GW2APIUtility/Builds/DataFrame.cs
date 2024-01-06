@@ -2,13 +2,13 @@
 {
     internal class DataFrame
     {
-        public DataFrame(DataType type, int size)
+        public DataFrame(DataType dataType, int size)
         {
-            Type = type;
+            DataType = dataType;
             Size = size;
         }
 
-        public DataType Type { get; }
+        public DataType DataType { get; }
         public int Size { get; }
     }
 
